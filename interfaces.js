@@ -72,10 +72,12 @@ var asElevatorInterface = function(obj, elevator, floorCount, errorHandler) {
 
     elevator.on("passing_floor", function(floorNum, direction) {
         tryTrigger("passing_floor", floorNum, direction);
+        tryTrigger("ΠΕΡΝΑΕΙ_ΑΠΟ_ΟΡΟΦΟ", floorNum, direction); //160319 added
     });
 
     elevator.on("stopped_at_floor", function(floorNum) {
         tryTrigger("stopped_at_floor", floorNum);
+        tryTrigger("ΣΤΑΜΑΤΗΣΕ_ΣΤΟΝ_ΟΡΟΦΟ", floorNum); //160319 added
     });
     elevator.on("floor_button_pressed", function(floorNum) {
         tryTrigger("floor_button_pressed", floorNum);
