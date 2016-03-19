@@ -36,6 +36,32 @@ var asElevatorInterface = function(obj, elevator, floorCount, errorHandler) {
         elevatorInterface.destinationQueue[(forceNow ? "unshift" : "push")](floorNum);
         elevatorInterface.checkDestinationQueue();
     };
+    // TODO: Write tests for this queueing logic
+    elevatorInterface.OROFOS = function(floorNum, forceNow) {
+        floorNum = limitNumber(Number(floorNum), 0, floorCount - 1);
+        // Auto-prevent immediately duplicate destinations
+        if(elevatorInterface.destinationQueue.length) {
+            var adjacentElement = forceNow ? _.first(elevatorInterface.destinationQueue) : _.last(elevatorInterface.destinationQueue);
+            if(epsilonEquals(floorNum, adjacentElement)) {
+                return;
+            }
+        }
+        elevatorInterface.destinationQueue[(forceNow ? "unshift" : "push")](floorNum);
+        elevatorInterface.checkDestinationQueue();
+    };	
+    // TODO: Write tests for this queueing logic
+    elevatorInterface.ΟΡΟΦΟΣ = function(floorNum, forceNow) {
+        floorNum = limitNumber(Number(floorNum), 0, floorCount - 1);
+        // Auto-prevent immediately duplicate destinations
+        if(elevatorInterface.destinationQueue.length) {
+            var adjacentElement = forceNow ? _.first(elevatorInterface.destinationQueue) : _.last(elevatorInterface.destinationQueue);
+            if(epsilonEquals(floorNum, adjacentElement)) {
+                return;
+            }
+        }
+        elevatorInterface.destinationQueue[(forceNow ? "unshift" : "push")](floorNum);
+        elevatorInterface.checkDestinationQueue();
+    };    
 
     elevatorInterface.stop = function() {
         elevatorInterface.destinationQueue = [];
