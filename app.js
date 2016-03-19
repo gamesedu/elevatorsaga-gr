@@ -81,15 +81,16 @@ var createEditor = function() {
     });
 
     returnObj.getCodeObj = function() {
+    	//++++++++++hard coded readonly lines from index.html++++++++++++++++++++++++++++++++
 		cm.markText({line:0,ch:0},{line:6,ch:0},{readOnly:true});//set read only lines 160319######
 		cm.markText({line:11,ch:0},{line:12,ch:0},{readOnly:true});//set read only lines 160319######
 		cm.markText({line:13,ch:0},{line:15,ch:0},{readOnly:true});//set read only lines 160319######
-		cm.markText({line:16,ch:0},{line:17,ch:0},{readOnly:true});//set read only lines 160319######
+		cm.markText({line:16,ch:0},{line:18,ch:0},{readOnly:true});//set read only lines 160319######
 		cm.markText({line:18,ch:0},{line:20,ch:0},{readOnly:true});//set read only lines 160319######
 		cm.markText({line:21,ch:0},{line:22,ch:0},{readOnly:true});//set read only lines 160319######
 		cm.markText({line:26,ch:0},{line:28,ch:0},{readOnly:true});//set read only lines 160319######
-		cm.markText({line:29,ch:0},{line:30,ch:0},{readOnly:true});//set read only lines 160319######        
-        
+		cm.markText({line:29,ch:0},{line:30,ch:30},{readOnly:true});//set read only lines 160319######      
+        //----------------------------------hard coded readonly lines from index.html-------------------------
         console.log("Getting code...");
         var code = cm.getValue();
         var obj;
