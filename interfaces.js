@@ -79,6 +79,7 @@ var asElevatorInterface = function(obj, elevator, floorCount, errorHandler) {
     });
     elevator.on("floor_button_pressed", function(floorNum) {
         tryTrigger("floor_button_pressed", floorNum);
+        tryTrigger("ΠΑΤΗΘΗΚΕ_ΚΟΥΜΠΙ", floorNum); //160319 added
     });
 
     return elevatorInterface;
