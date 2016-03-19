@@ -4,7 +4,8 @@
     <title>Elevator Saga - the elevator programming game</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="font-awesome-4.1-1.0/css/font-awesome.min.css" type="text/css" media="all">
-    <link href='//fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <!-- google link removed because it took to much time to load... -->
+    <!-- <link href='//fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="libs/codemirror/codemirror.css">
     <link rel="stylesheet" href="libs/codemirror/themes/solarized.css">
     <link rel="stylesheet" href="style.css" type="text/css" media="all">
@@ -85,19 +86,35 @@
 
     <script type="text/plain" id="default-elev-implementation">
 {
-    init: function(elevators, floors) {
-        var elevator = elevators[0]; // Let's use the first elevator
-
-        // Whenever the elevator is idle (has no more queued destinations) ...
-        elevator.on("idle", function() {
-            // let's go to all the floors (or did we forget one?)
-            elevator.goToFloor(0);
-            elevator.goToFloor(1);
+    init: function(ΑΣΑΝΣΕΡ, floors) {
+        //ΤΑ ΑΣΑΝΣΕΡ ΤΑ ΟΝΟΜΑΖΟΥΜΕ ΑΣΑΝΣΕΡ[0],ΑΣΑΝΣΕΡ[1],ΑΣΑΝΣΕΡ[2],...
+		//ΓΙΑ ΚΑΘΕ ΑΣΑΝΣΕΡ ΘΑ ΓΡΑΨΟΥΜΕ ΤΙ ΘΑ ΚΑΝΕΙ ΣΕ ΚΑΘΕ ΠΕΡΙΠΤΩΣΗ.
+		
+        // ΤΙ ΘΑ ΚΑΝΕΙ ΤΟ ΑΣΑΝΣΕΡ[0] ΟΤΑΝ ΔΕΝ ΕΧΕΙ ΣΥΓΚΕΚΡΙΜΕΝΗ ΔΟΥΛΕΙΑ/IDLE (ΔΕΝ ΕΧΕΙ ΟΡΟΦΟΥΣ ΣΕ ΑΝΑΜΟΝΗ/ΟΥΡΑ)
+        ΑΣΑΝΣΕΡ[0].on("idle", function() {
+            // Ας πάμε σε όλους τους ορόφους (μήπως ξεχάσαμε ένα;)
+            ΑΣΑΝΣΕΡ[0].ΟΡΟΦΟΣ(0); //ΑΣΑΝΣΕΡ[0].goToloor(0);
+            ΑΣΑΝΣΕΡ[0].ΟΡΟΦΟΣ(1);
+            
         });
+        
+		// ΤΙ ΘΑ ΚΑΝΕΙ ΤΟ ΑΣΑΝΣΕΡ[0] ΟΤΑΝ ΠΑΤΗΘΕΊ ΚΟΥΜΠΙ ΟΡΌΦΟΥ (ΓΙΑ ΕΠΟΜΕΝΕΣ ΠΙΣΤΕΣ)
+        ΑΣΑΝΣΕΡ[0].on("ΠΑΤΗΘΗΚΕ_ΚΟΥΜΠΙ", function(floorNum) {
+            // TI NA KANOYME OTAN ΠΑΤΗΘΕΙ ΚΟΥΜΠΙ ΓΙΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΟΡΟΦΟ
+        });
+        
+		// ΤΙ ΘΑ ΚΑΝΕΙ ΤΟ ΑΣΑΝΣΕΡ[0] ΟΤΑΝ ΣΤΑΜΑΤΗΣΕΙ ΣΕ ΚΑΠΟΙΟΝ ΟΡΟΦΟ (ΓΙΑ ΕΠΟΜΕΝΕΣ ΠΙΣΤΕΣ)
+        ΑΣΑΝΣΕΡ[0].on("ΣΤΑΜΑΤΗΣΕ_ΣΤΟΝ_ΟΡΟΦΟ", function(floorNum) {
+            // TI NA KANOYME OTAN TO ΑΣΑΝΣΕΡ ΣΤΑΜΑΤΗΣΕ ΣΕ ΚΑΠΟΙΟΝ ΟΡΟΦΟ
+        });		
+		
+		// ... ΕΔΩ ΜΠΟΡΕΊΤΕ ΝΑ ΓΡΑΨΕΤΕ ΚΩΔΙΚΑ ΓΙΑ ΤΑ ΑΛΛΑ ΑΣΑΝΣΕΡ (ΑΣΑΝΣΕΡ[1],...)
+		
+		
+		
     },
     update: function(dt, elevators, floors) {
         // We normally don't need to do anything here
-    }
 }
     </script>
     <script type="text/plain" id="devtest-elev-implementation">
