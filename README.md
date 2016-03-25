@@ -1,6 +1,7 @@
 Elevator Saga
 ===================
 The elevator programming game
+<img src="elevator_saga.jpg" />
 
 [Play it now!](http://play.elevatorsaga.com/)
 
